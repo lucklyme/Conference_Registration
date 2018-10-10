@@ -13,14 +13,14 @@ from io import BytesIO
 import datetime
 
 # Create your views here.
+corpid = '**********'
+secrect = '******************************'
 
 @csrf_exempt
 def checkin(request):
     code = request.GET['code']   # 扫码重定向成功后，企业微信返回code，通过code获取成员信息
     state = request.GET['state']    # 二维码重定向链接中所带的状态值，用来返回会议ID号
-
-    corpid = 'ww996c9c8775ce9ade'
-    secrect = 'ulj7zWItsCYPOeLhWCV92NLHxTGiq96eW8bdBj3zY30'
+   
     api_url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=' + corpid + '&corpsecret=' + secrect
     req = requests.get(api_url)
     token_dict = json.loads(req.text)
@@ -76,7 +76,6 @@ def checkin(request):
 
 @csrf_exempt
 def index(request):
-    corpid = 'ww996c9c8775ce9ade'
     AgentId = '1000023'
     meet_id = request.GET.get('meet_id', 0)
     if meet_id == 0:
