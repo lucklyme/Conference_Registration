@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>会议签到系统-上海斯耐迪</title>
+    <meta name="description" content="Flat UI Kit Free is a Twitter Bootstrap Framework design and Theme, this responsive framework includes a PSD and HTML version."/>
+
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="/static/css/flat-ui.min.css" rel="stylesheet">
+    <link href="/static/css/demo.css" rel="stylesheet">
+
+	<style type="text/css">
+		.main{
+				text-align: center; /*让div内部文字居中*/
+				border-radius: 20px;
+				width: 300px;
+				height: 250px;
+				margin: auto;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				}
+		body{background:url("/static/bg.jpg") no-repeat fixed; background-size:cover;}
+		#sub{width:220px;height:41px;margin-top:20px;}
+
+    </style>
+  </head>
+  <body>
+    <div class="main">
+        <form action="/" method="get">
+        <div class="col">
+          <h2 class="demo-panel-title">会议选择</h2>            
+              <select class="form-control select select-primary" data-toggle="select" name="meet_id">
+				{% for meet in meet_list %}
+					<option value={{ meet.id }}>{{ meet.name }}</option>
+				{% endfor %}
+              </select>            
+		  <input id="sub" type="submit" class="btn btn-primary" value="确定"/>
+        </div>
+        </form>
+		<!-- /.col -->
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/static/js/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Bootstrap 4 requires Popper.js -->
+    <script src="/static/js/flat-ui.min.js"></script>
+    <script src="/static/js/application.js"></script>
+
+  </body>
+</html>
